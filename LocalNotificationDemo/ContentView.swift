@@ -143,32 +143,32 @@ class BackgroundAudioPlayer: NSObject, ObservableObject {
             let latitude = String(currentLocation?.coordinate.latitude ?? Double())
             let longitude = String(currentLocation?.coordinate.longitude ?? Double())
             
-            if let url = URL(string: "https://www.id-hr.it/koala/inserisci_coordinate.php/?ID_Dispositivo=732&Latitudine=" + latitude + "&Longitudine=" + longitude + "&Giorno=Now&Ora=Now") {
-                print("Server URL: ",url.absoluteString)
-                self.logArray.append("SERVER URL: "+url.absoluteString+"\n")
-                var request = URLRequest(url: url,timeoutInterval: Double.infinity)
-                    request.httpMethod = "GET"
-                print("API call started at: ",self.getCurrentTime())
-                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                      guard let data = data else {
-                        print("API RESPONSE: ERROR ",String(describing: error))
-                          DispatchQueue.main.async{
-                              self.logArray.append("API response: ERROR "+String(describing: error)+"\n")
-                              self.logArray.append("-----------------------------")
-                          }
-                          print("********************-------------------------------************************")
-                        return
-                      }
-                      print("API RESPONSE",String(data: data, encoding: .utf8)!)
-                        DispatchQueue.main.async{
-                            self.logArray.append("API response"+String(data: data, encoding: .utf8)!+"\n")
-                            self.logArray.append("-----------------------------")
-                        }
-                        print("********************-------------------------------************************")
-                    }
-
-                    task.resume()
-            }
+//            if let url = URL(string: "PUT YOUR API URL HERE" + latitude + "&Longitudine=" + longitude + "&Giorno=Now&Ora=Now") {
+//                print("Server URL: ",url.absoluteString)
+//                self.logArray.append("SERVER URL: "+url.absoluteString+"\n")
+//                var request = URLRequest(url: url,timeoutInterval: Double.infinity)
+//                    request.httpMethod = "GET"
+//                print("API call started at: ",self.getCurrentTime())
+//                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//                      guard let data = data else {
+//                        print("API RESPONSE: ERROR ",String(describing: error))
+//                          DispatchQueue.main.async{
+//                              self.logArray.append("API response: ERROR "+String(describing: error)+"\n")
+//                              self.logArray.append("-----------------------------")
+//                          }
+//                          print("********************-------------------------------************************")
+//                        return
+//                      }
+//                      print("API RESPONSE",String(data: data, encoding: .utf8)!)
+//                        DispatchQueue.main.async{
+//                            self.logArray.append("API response"+String(data: data, encoding: .utf8)!+"\n")
+//                            self.logArray.append("-----------------------------")
+//                        }
+//                        print("********************-------------------------------************************")
+//                    }
+//
+//                    task.resume()
+//            }
         }
     }
     
